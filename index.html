@@ -260,8 +260,7 @@
     .included { display: grid; grid-template-columns: 1fr 1fr; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); }
     .included__head { background: var(--green); color: #fff; padding: 40px 36px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
     .included__head::after { content: ""; position: absolute; right: -30px; bottom: -30px; width: 240px; height: 130px; background: var(--seigaiha); background-size: 40px 20px; opacity: .18; border-radius: 50%; }
-    .included__head h3 { font-family: var(--mincho); font-size: clamp(1.35rem, 3vw, 1.7rem); line-height: 1.6; }
-    .included__head p { margin-top: 12px; opacity: .95; }
+    .included__head h3 { font-family: var(--mincho); font-size: clamp(1.15rem, 2.6vw, 1.4rem); line-height: 1.6; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.4); }
     .included__body { padding: 36px; }
     .included__body h4 { margin: 0 0 12px; color: var(--green-deep); font-size: 1rem; }
     .set-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 18px; }
@@ -270,7 +269,11 @@
     .included__extra { margin-top: 20px; padding: 14px 16px; background: var(--gold-pale); border-radius: 12px; font-size: .92rem; }
     .included__extra strong { color: #7a5b17; }
     .included__note { margin-top: 14px; font-size: .82rem; color: var(--muted); }
-    .included__price { margin-top: 18px; width: 100%; white-space: normal; text-align: center; }
+    .included__label { font-weight: 700; font-size: .95rem; opacity: .95; }
+    .included__price { font-family: var(--mincho); font-weight: 800; font-size: clamp(1.8rem, 4.6vw, 2.5rem); line-height: 1.3; letter-spacing: .02em; white-space: nowrap; }
+    .included__price small { font-size: .55em; margin-left: 2px; }
+    .included__tax { font-size: .85rem; opacity: .95; margin: 2px 0 20px; }
+    .included__link { display: inline-block; margin-top: 14px; color: var(--green-deep); font-weight: 700; font-size: .92rem; text-decoration: underline; text-underline-offset: 3px; }
     @media (max-width: 768px) { .included { grid-template-columns: 1fr; } .included__head, .included__body { padding: 28px 22px; } }
 
     /* ---------- Flow ---------- */
@@ -318,42 +321,6 @@
     .sns { display: flex; justify-content: center; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
     .sns a { display: inline-flex; align-items: center; gap: 8px; padding: .6em 1.3em; border-radius: 999px; font-weight: 700; font-size: .92rem; border: 1px solid var(--line); background: var(--green-mist); }
     .sns svg { width: 20px; height: 20px; }
-    .divider { display: flex; align-items: center; gap: 16px; color: #fff; font-weight: 700; margin: 40px 0 24px; }
-    .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: rgba(255, 255, 255, .5); }
-
-    .form { background: #fff; border-radius: var(--radius); padding: 40px 36px; box-shadow: 0 20px 50px rgba(0, 0, 0, .15); }
-    .form__intro { text-align: center; color: var(--muted); font-size: .92rem; margin-bottom: 24px; }
-    .form__row { display: grid; grid-template-columns: 11em 1fr; gap: 16px; align-items: start; padding: 16px 0; border-bottom: 1px solid var(--line); }
-    .form__label { font-weight: 700; padding-top: .55em; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-    .req, .opt { font-size: .7rem; font-weight: 700; padding: .1em .6em; border-radius: 4px; color: #fff; background: var(--accent); }
-    .opt { background: #a8b5ae; }
-    .form input[type="text"], .form input[type="tel"], .form select, .form textarea {
-      width: 100%; border: 1px solid #c9dbd0; border-radius: 10px; padding: .75em 1em; background: #fbfdfc; transition: border-color .2s, box-shadow .2s;
-    }
-    .form input:focus, .form select:focus, .form textarea:focus { border-color: var(--green); box-shadow: 0 0 0 4px rgba(47, 174, 102, .15); outline: none; }
-    .form textarea { min-height: 110px; resize: vertical; }
-    .form .is-invalid { border-color: #d6455d !important; background: #fff6f8 !important; }
-    .form__error { color: #c23a52; font-size: .82rem; margin-top: 6px; }
-    .form__hint { color: var(--muted); font-size: .8rem; margin-top: 6px; }
-    .radio-group { display: flex; flex-wrap: wrap; gap: 10px; }
-    .radio-group label { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #c9dbd0; border-radius: 999px; padding: .5em 1.1em; cursor: pointer; background: #fbfdfc; }
-    .radio-group input { accent-color: var(--green); }
-    .radio-group label:has(input:checked) { border-color: var(--green); background: var(--green-pale); color: var(--green-deep); font-weight: 700; }
-    .radio-group.is-invalid label { border-color: #d6455d; }
-    .form__privacy { margin-top: 24px; text-align: center; font-size: .9rem; }
-    .form__privacy input { accent-color: var(--green); margin-right: 6px; }
-    .form__privacy a { color: var(--green-deep); text-decoration: underline; }
-    .form__submit { margin-top: 22px; text-align: center; }
-    .form__submit .btn { min-width: min(100%, 320px); }
-    .form__done { display: none; text-align: center; padding: 20px 0; }
-    .form__done h3 { font-family: var(--mincho); font-size: 1.4rem; color: var(--green-deep); margin-bottom: 10px; }
-    .form.is-done .form__fields { display: none; }
-    .form.is-done .form__done { display: block; }
-    @media (max-width: 680px) {
-      .form { padding: 28px 20px; }
-      .form__row { grid-template-columns: 1fr; gap: 8px; }
-      .form__label { padding-top: 0; }
-    }
 
     /* ---------- Access ---------- */
     .access { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
@@ -381,7 +348,6 @@
     .sticky-cta a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 14px 8px; border-radius: 999px; font-weight: 700; box-shadow: 0 10px 26px rgba(0, 0, 0, .18); }
     .sticky-cta svg { width: 18px; height: 18px; }
     .sticky-cta .tel { background: var(--green); color: #fff; }
-    .sticky-cta .web { flex: 0 0 38%; background: #fff; color: var(--green-deep); border: 2px solid var(--green); }
     @media (max-width: 768px) { .sticky-cta { display: flex; } }
 
     /* ---------- Reveal ---------- */
@@ -398,7 +364,7 @@
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="i-tel" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></symbol>
     <symbol id="i-insta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></symbol>
-    <symbol id="i-line" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5 1.1-.4 5.9-3.5 8-6C21.4 14.2 22 12.7 22 11c0-4.4-4.5-8-10-8z"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></symbol>
   </svg>
 
   <!-- ===== Header ===== -->
@@ -414,7 +380,7 @@
         <a href="#included">レンタル内容</a>
         <a href="#flow">ご来場の流れ</a>
         <a href="#faq">よくある質問</a>
-        <a href="#reserve" class="btn btn--primary btn--sm">ご予約はこちら</a>
+        <a href="tel:0728912802" class="btn btn--primary btn--sm"><svg aria-hidden="true"><use href="#i-tel"/></svg>電話で予約</a>
       </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
         <span></span><span></span><span></span>
@@ -485,7 +451,7 @@
           <dl class="event__table reveal">
             <div><dt>日程</dt><dd>2027年2月2日（火）〜2月12日（金）</dd></div>
             <div><dt>受付時間</dt><dd>9:00〜16:00<small>※ 2月12日（金）は最終受付11:30までとなっております。</small></dd></div>
-            <div><dt>休業日</dt><dd>2月8日（月）<small>※ 毎週月曜日は定休日です。</small></dd></div>
+            <div><dt>休業日</dt><dd>2月8日（月）<small>※ 毎週月曜日は休業です。</small></dd></div>
             <div><dt>場所</dt><dd>MORIWAKI交野本店 2階<small>大阪府交野市私部3丁目9-13</small></dd></div>
             <div><dt>ご予約</dt><dd><span class="em">予約優先制</span><small>11月1日（日）から電話予約スタート</small></dd></div>
             <div><dt>お問い合わせ</dt><dd>MORIWAKI貸衣装店<small><a href="tel:0728912802">TEL 072-891-2802</a></small></dd></div>
@@ -593,8 +559,10 @@
         </div>
         <div class="included reveal">
           <div class="included__head">
+            <p class="included__label">振袖レンタル</p>
+            <p class="included__price">66,000<small>円</small> 〜 440,000<small>円</small></p>
+            <p class="included__tax">（税込・着付け料金込み）</p>
             <h3>振袖・小物一式＋<br>成人式当日のお仕度まで</h3>
-            <p>必要なものはすべてレンタルでご用意。<br>買い足しの心配はありません。</p>
           </div>
           <div class="included__body">
             <h4>セット内容</h4>
@@ -610,7 +578,7 @@
             </ul>
             <p class="included__extra"><strong>小物のグレードアップ</strong>：別途1,000円〜3,000円程度で、より豪華な小物に変更できます。</p>
             <p class="included__note">※ 前撮り・アルバムなどの詳細は、展示会にてご案内いたします。</p>
-            <a class="btn btn--outline included__price" href="https://www.bs-moriwaki.co.jp/" target="_blank" rel="noopener">料金はオフィシャルサイトでご確認ください</a>
+            <a class="included__link" href="https://www.bs-moriwaki.co.jp/menu/index.html#kimono" target="_blank" rel="noopener">オフィシャルサイトの料金表を見る →</a>
           </div>
         </div>
       </div>
@@ -686,7 +654,7 @@
         <div class="section__head">
           <p class="section__en">RESERVATION</p>
           <h2 class="section__title">展示会のご予約</h2>
-          <p class="section__lead">予約優先制です。お早めにご予約ください。</p>
+          <p class="section__lead">予約優先制です。ご予約はお電話で承ります。</p>
         </div>
 
         <div class="tel-card">
@@ -696,98 +664,11 @@
           <p class="tel-card__note">電話受付時間：9:00〜18:00（定休日：毎週月曜日）</p>
           <a href="tel:0728912802" class="btn btn--primary btn--lg"><svg aria-hidden="true"><use href="#i-tel"/></svg>電話をかける</a>
           <div class="sns">
-            <a href="#" aria-label="貸衣装店のInstagram"><svg aria-hidden="true"><use href="#i-insta"/></svg>貸衣装店 Instagram</a>
-            <a href="#" aria-label="貸衣装店のLINE"><svg aria-hidden="true" style="color:#06c755"><use href="#i-line"/></svg>貸衣装店 LINE</a>
+            <a href="https://www.instagram.com/moriwaki.ishoten/" target="_blank" rel="noopener"><svg aria-hidden="true" style="color:#c13584"><use href="#i-insta"/></svg>貸衣装店 Instagram</a>
+            <a href="https://www.facebook.com/bs.moriwaki.isyou/" target="_blank" rel="noopener"><svg aria-hidden="true" style="color:#1877f2"><use href="#i-fb"/></svg>貸衣装店 Facebook</a>
           </div>
         </div>
 
-        <p class="divider">WEBからのご予約申込</p>
-
-        <form class="form" id="reserveForm" novalidate>
-          <div class="form__fields">
-            <p class="form__intro">以下をご入力のうえ送信してください。<br>担当者より、予約確定のお電話をいたします。</p>
-            <div class="form__row">
-              <label class="form__label" for="name">お名前<span class="req">必須</span></label>
-              <div><input type="text" id="name" name="name" autocomplete="name" placeholder="例）森脇 花子" required><p class="form__error" aria-live="polite"></p></div>
-            </div>
-            <div class="form__row">
-              <label class="form__label" for="tel">電話番号<span class="req">必須</span></label>
-              <div><input type="tel" id="tel" name="tel" autocomplete="tel" inputmode="tel" placeholder="例）090-1234-5678" required><p class="form__error" aria-live="polite"></p></div>
-            </div>
-            <div class="form__row">
-              <span class="form__label" id="yearLabel">成人式の年<span class="req">必須</span></span>
-              <div>
-                <div class="radio-group" id="yearGroup" role="radiogroup" aria-labelledby="yearLabel">
-                  <label><input type="radio" name="year" value="2028年1月">2028年1月</label>
-                  <label><input type="radio" name="year" value="2029年1月">2029年1月</label>
-                  <label><input type="radio" name="year" value="その他">その他</label>
-                </div>
-                <p class="form__error" aria-live="polite"></p>
-              </div>
-            </div>
-            <div class="form__row">
-              <label class="form__label" for="date">ご希望日<span class="req">必須</span></label>
-              <div>
-                <select id="date" name="date" required>
-                  <option value="">選択してください</option>
-                  <option value="2月2日（火）">2月2日（火）</option>
-                  <option value="2月3日（水）">2月3日（水）</option>
-                  <option value="2月4日（木）">2月4日（木）</option>
-                  <option value="2月5日（金）">2月5日（金）</option>
-                  <option value="2月6日（土）">2月6日（土）</option>
-                  <option value="2月7日（日）">2月7日（日）</option>
-                  <option value="2月9日（火）">2月9日（火）</option>
-                  <option value="2月10日（水）">2月10日（水）</option>
-                  <option value="2月11日（木・祝）">2月11日（木・祝）</option>
-                  <option value="2月12日（金）" data-last="1">2月12日（金）　※最終受付11:30</option>
-                </select>
-                <p class="form__hint">※ 2月8日（月）は定休日のため休業です。</p>
-                <p class="form__error" aria-live="polite"></p>
-              </div>
-            </div>
-            <div class="form__row">
-              <label class="form__label" for="time">ご希望時間<span class="req">必須</span></label>
-              <div>
-                <select id="time" name="time" required>
-                  <option value="">選択してください</option>
-                  <option value="9:00">9:00〜</option>
-                  <option value="9:30">9:30〜</option>
-                  <option value="10:00">10:00〜</option>
-                  <option value="10:30">10:30〜</option>
-                  <option value="11:00">11:00〜</option>
-                  <option value="11:30">11:30〜</option>
-                  <option value="12:00" class="pm">12:00〜</option>
-                  <option value="12:30" class="pm">12:30〜</option>
-                  <option value="13:00" class="pm">13:00〜</option>
-                  <option value="13:30" class="pm">13:30〜</option>
-                  <option value="14:00" class="pm">14:00〜</option>
-                  <option value="14:30" class="pm">14:30〜</option>
-                  <option value="15:00" class="pm">15:00〜</option>
-                  <option value="15:30" class="pm">15:30〜</option>
-                  <option value="16:00" class="pm">16:00〜</option>
-                </select>
-                <p class="form__hint">※ 受付は9:00〜16:00（2月12日は11:30まで）。振袖選びは2時間ほどかかります。</p>
-                <p class="form__error" aria-live="polite"></p>
-              </div>
-            </div>
-            <div class="form__row">
-              <label class="form__label" for="message">ご質問・ご要望<span class="opt">任意</span></label>
-              <div><textarea id="message" name="message" placeholder="ご来場人数や、気になる色・柄のイメージなどがあればご記入ください"></textarea></div>
-            </div>
-            <p class="form__privacy">
-              <label><input type="checkbox" id="agree" name="agree" required><a href="#">個人情報の取り扱い</a>に同意する</label>
-              <span class="form__error" id="agreeError" aria-live="polite" style="display:block"></span>
-            </p>
-            <div class="form__submit">
-              <button type="submit" class="btn btn--primary btn--lg">予約申込を送信する</button>
-              <p class="form__error" id="sendError" aria-live="polite"></p>
-            </div>
-          </div>
-          <div class="form__done" role="status" aria-live="polite" tabindex="-1">
-            <h3>お申し込みありがとうございます</h3>
-            <p>ご入力いただいた内容で受け付けました。<br>担当者より予約確定のお電話をいたしますので、今しばらくお待ちください。</p>
-          </div>
-        </form>
       </div>
     </section>
 
@@ -805,6 +686,7 @@
             <dl class="access__list">
               <div><dt>住所</dt><dd>〒576-0052 大阪府交野市私部3丁目9-13</dd></div>
               <div><dt>最寄り駅</dt><dd>京阪交野線「交野市駅」</dd></div>
+              <div><dt>駐車場</dt><dd>10台</dd></div>
             </dl>
             <iframe class="access__map" title="MORIWAKI交野本店の地図" src="https://maps.google.com/maps?q=%E5%A4%A7%E9%98%AA%E5%BA%9C%E4%BA%A4%E9%87%8E%E5%B8%82%E7%A7%81%E9%83%A83%E4%B8%81%E7%9B%AE9-13&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
@@ -817,6 +699,7 @@
               <div><dt>電話</dt><dd><a href="tel:0728912802">072-891-2802</a></dd></div>
               <div><dt>電話受付</dt><dd>9:00〜18:00</dd></div>
               <div><dt>定休日</dt><dd>毎週月曜日</dd></div>
+              <div><dt>駐車場</dt><dd>10台</dd></div>
             </dl>
           </div>
         </div>
@@ -843,8 +726,7 @@
   </footer>
 
   <div class="sticky-cta" id="stickyCta">
-    <a href="tel:0728912802" class="tel"><svg aria-hidden="true"><use href="#i-tel"/></svg>電話で予約</a>
-    <a href="#reserve" class="web">WEB申込</a>
+    <a href="tel:0728912802" class="tel"><svg aria-hidden="true"><use href="#i-tel"/></svg>電話で予約する｜072-891-2802</a>
   </div>
 
   <script>
@@ -912,99 +794,6 @@
           selectTab(next); next.focus();
         });
       });
-
-      // ----- Reservation form → Google フォーム -----
-      // Google フォームを作成したら、action と各項目の entry ID を設定してください（README 参照）。
-      // action が空のあいだは、送信しても完了画面を表示するだけのデモ動作になります。
-      const GOOGLE_FORM = {
-        action: '', // 例）'https://docs.google.com/forms/d/e/XXXXXXXX/formResponse'
-        entries: {
-          name: '',    // お名前       例）'entry.1111111111'
-          tel: '',     // 電話番号
-          year: '',    // 成人式の年（選択肢：2028年1月／2029年1月／その他）
-          date: '',    // ご希望日
-          time: '',    // ご希望時間
-          message: '', // ご質問・ご要望
-        },
-      };
-
-      const form = document.getElementById('reserveForm');
-      const dateSel = form.elements.date;
-      const timeSel = form.elements.time;
-
-      // 2月12日は最終受付11:30のため、午後の枠を選べないようにする
-      dateSel.addEventListener('change', () => {
-        const lastDay = !!dateSel.selectedOptions[0]?.dataset.last;
-        timeSel.querySelectorAll('.pm').forEach((o) => { o.disabled = lastDay; o.hidden = lastDay; });
-        if (lastDay && timeSel.selectedOptions[0]?.classList.contains('pm')) timeSel.value = '';
-      });
-
-      const setError = (el, box, msg) => {
-        el.classList.toggle('is-invalid', !!msg);
-        el.setAttribute('aria-invalid', String(!!msg));
-        box.querySelector('.form__error').textContent = msg;
-        return !msg;
-      };
-      const rules = {
-        name: (v) => v ? '' : 'お名前を入力してください。',
-        tel: (v) => !v ? '電話番号を入力してください。' : (/^[0-9０-９\-－()\s]{10,15}$/.test(v) ? '' : '正しい電話番号を入力してください。'),
-        date: (v) => v ? '' : 'ご希望日を選択してください。',
-        time: (v) => v ? '' : 'ご希望時間を選択してください。',
-      };
-      const checkField = (name) => {
-        const f = form.elements[name];
-        return setError(f, f.parentElement, rules[name](f.value.trim()));
-      };
-      const checkYear = () => {
-        const group = document.getElementById('yearGroup');
-        return setError(group, group.parentElement, form.elements.year.value ? '' : '成人式の年を選択してください。');
-      };
-      Object.keys(rules).forEach((name) => {
-        const f = form.elements[name];
-        f.addEventListener('blur', () => { if (f.value) checkField(name); });
-        f.addEventListener('change', () => { if (f.classList.contains('is-invalid')) checkField(name); });
-      });
-      form.querySelectorAll('input[name="year"]').forEach((r) => r.addEventListener('change', checkYear));
-
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const results = ['name', 'tel'].map(checkField);
-        results.push(checkYear());
-        results.push(...['date', 'time'].map(checkField));
-        const agree = form.elements.agree;
-        document.getElementById('agreeError').textContent = agree.checked ? '' : '個人情報の取り扱いへの同意が必要です。';
-        if (results.includes(false)) {
-          const first = form.querySelector('.is-invalid');
-          (first.matches('.radio-group') ? first.querySelector('input') : first).focus();
-          return;
-        }
-        if (!agree.checked) { agree.focus(); return; }
-        send();
-      });
-
-      const sendError = document.getElementById('sendError');
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const showDone = () => { form.classList.add('is-done'); form.querySelector('.form__done').focus(); };
-      const send = async () => {
-        sendError.textContent = '';
-        if (!GOOGLE_FORM.action) { console.warn('GOOGLE_FORM.action が未設定のため、送信せずに完了画面を表示しています。'); showDone(); return; }
-        const body = new URLSearchParams();
-        Object.entries(GOOGLE_FORM.entries).forEach(([field, entry]) => {
-          if (entry) body.append(entry, form.elements[field].value.trim());
-        });
-        submitBtn.disabled = true;
-        submitBtn.textContent = '送信中…';
-        try {
-          // Google フォームは別ドメインのため no-cors で送信（レスポンスの中身は読めません）
-          await fetch(GOOGLE_FORM.action, { method: 'POST', mode: 'no-cors', body });
-          showDone();
-        } catch (err) {
-          sendError.textContent = '送信できませんでした。通信環境をご確認のうえ、もう一度お試しいただくか、お電話（072-891-2802）でご予約ください。';
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.textContent = '予約申込を送信する';
-        }
-      };
 
       document.getElementById('year').textContent = new Date().getFullYear();
     })();
