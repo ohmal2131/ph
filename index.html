@@ -258,6 +258,22 @@
     @media (max-width: 900px) { .panel { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; } }
     @media (max-width: 420px) { .tab { padding: .7em 1.1em; font-size: .92rem; } }
 
+    /* ---------- Message ---------- */
+    .message { display: grid; grid-template-columns: 1.05fr 1fr; gap: 0; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); margin-bottom: 56px; }
+    .message__photo img { width: 100%; height: 100%; min-height: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 30%; display: block; }
+    .message__body { padding: 40px 40px 36px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+    .message__body::before { content: ""; position: absolute; top: 18px; right: 18px; width: 56px; height: 56px; border-top: 2px solid var(--gold); border-right: 2px solid var(--gold); opacity: .6; border-top-right-radius: 8px; }
+    .message__en { font-family: var(--mincho); font-size: .8rem; letter-spacing: .3em; color: var(--green); font-weight: 700; }
+    .message__title { font-family: var(--mincho); font-weight: 800; font-size: clamp(1.3rem, 2.8vw, 1.7rem); line-height: 1.6; margin-top: 6px; color: var(--green-deep); }
+    .message__text { margin-top: 16px; color: var(--muted); font-size: .95rem; }
+    .message__sign { margin-top: 22px; display: flex; flex-direction: column; align-items: flex-end; line-height: 1.5; }
+    .message__sign span { font-size: .82rem; color: var(--muted); }
+    .message__sign strong { font-family: var(--mincho); font-size: 1.35rem; letter-spacing: .2em; }
+    @media (max-width: 860px) {
+      .message { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; margin-bottom: 44px; }
+      .message__body { padding: 28px 22px 26px; }
+    }
+
     /* ---------- Included ---------- */
     .included { display: grid; grid-template-columns: 1fr 1fr; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); }
     .included__head { background: var(--green); color: #fff; padding: 40px 36px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
@@ -524,6 +540,17 @@
           <p class="section__en">FOR YOU</p>
           <h2 class="section__title">新成人の方へ・<br class="sp-only">ご家族の方へ</h2>
         </div>
+        <figure class="message reveal">
+          <div class="message__photo">
+            <img src="images/message.jpg" alt="振袖姿の新成人のお客様と、KIMONOsalon総責任者の森脇文子" width="1200" height="800" loading="lazy">
+          </div>
+          <figcaption class="message__body">
+            <p class="message__en">MESSAGE</p>
+            <p class="message__title">一生に一度の晴れの日を、<br>心を込めて。</p>
+            <p class="message__text">成人式は、ご本人にとってもご家族にとっても、一生に一度の大切な節目です。<br><span class="nowrap">43年</span>にわたり、地域の皆さまの晴れの日に寄り添ってきた経験と信頼を活かし、振袖選びから前撮り、成人式当日のお仕度まで、責任を持ってお手伝いいたします。<br>ご本人もご家族も「この振袖にしてよかった」と思える、最高の思い出づくりをお手伝いできれば幸いです。</p>
+            <p class="message__sign"><span>MORIWAKI KIMONOsalon 総責任者</span><strong>森脇 文子</strong></p>
+          </figcaption>
+        </figure>
         <div class="tabs" role="tablist" aria-label="対象を選ぶ">
           <button class="tab" role="tab" id="tab-student" aria-controls="panel-student" aria-selected="true">新成人の方へ</button>
           <button class="tab" role="tab" id="tab-parents" aria-controls="panel-parents" aria-selected="false" tabindex="-1">ご家族の方へ</button>
