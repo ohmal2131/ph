@@ -206,6 +206,52 @@
     .intro__text { margin-top: 20px; color: var(--muted); }
     @media (max-width: 600px) { .intro__box { padding: 42px 22px; } .intro__text { text-align: left; } }
 
+    /* ---------- Gallery ---------- */
+    .gallery {
+      overflow: hidden;
+      background:
+        radial-gradient(520px 360px at 0% 20%, rgba(233, 141, 160, .12), transparent 70%),
+        radial-gradient(520px 360px at 100% 80%, rgba(184, 145, 58, .14), transparent 70%),
+        var(--cream);
+    }
+    .gallery::before, .gallery::after {
+      content: ""; position: absolute; left: 0; right: 0; height: 60px; background: var(--seigaiha); background-size: 40px 20px; opacity: .7;
+    }
+    .gallery::before { top: 0; -webkit-mask-image: linear-gradient(#000, transparent); mask-image: linear-gradient(#000, transparent); }
+    .gallery::after { bottom: 0; -webkit-mask-image: linear-gradient(transparent, #000); mask-image: linear-gradient(transparent, #000); }
+    .gallery .container { position: relative; z-index: 1; }
+    .gallery__list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; align-items: start; }
+    .gallery__item { text-align: center; }
+    .gallery__item:nth-child(even) { margin-top: 56px; }
+    .gallery__img {
+      display: block; width: 100%; padding: 0; border: 0; background: #fff; cursor: zoom-in; position: relative;
+      border-radius: 999px 999px 18px 18px; overflow: hidden;
+      box-shadow: 0 0 0 6px #fff, 0 0 0 7px rgba(184, 145, 58, .55), 0 18px 36px rgba(29, 122, 69, .15);
+    }
+    .gallery__img img { width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; object-position: 50% 0; transition: transform .6s ease; }
+    .gallery__img:hover img { transform: scale(1.05); }
+    .gallery__tag {
+      display: inline-block; margin-top: 22px; font-size: .78rem; font-weight: 700; color: #fff; background: var(--green);
+      padding: .15em 1em; border-radius: 999px; letter-spacing: .08em;
+    }
+    .gallery__name { font-family: var(--mincho); font-weight: 800; font-size: 1.2rem; margin-top: 6px; }
+    .gallery__desc { font-size: .86rem; color: var(--muted); margin-top: 4px; line-height: 1.7; text-align: left; }
+    .gallery__note { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 40px; }
+    @media (max-width: 900px) {
+      .gallery__list { grid-template-columns: repeat(2, 1fr); gap: 20px 16px; }
+      .gallery__item:nth-child(even) { margin-top: 36px; }
+      .gallery__img { box-shadow: 0 0 0 4px #fff, 0 0 0 5px rgba(184, 145, 58, .55), 0 12px 24px rgba(29, 122, 69, .15); }
+      .gallery__name { font-size: 1.05rem; }
+      .gallery__desc { font-size: .8rem; }
+    }
+    .lightbox { border: 0; padding: 0; background: transparent; max-width: min(92vw, 560px); overflow: visible; }
+    .lightbox::backdrop { background: rgba(20, 30, 25, .82); }
+    .lightbox img { display: block; width: 100%; height: auto; max-height: 88vh; object-fit: contain; border-radius: 14px; }
+    .lightbox__close {
+      position: absolute; top: -14px; right: -14px; width: 40px; height: 40px; border-radius: 50%; border: 0;
+      background: #fff; color: var(--ink); font-size: 1.4rem; line-height: 1; cursor: pointer; box-shadow: 0 6px 16px rgba(0, 0, 0, .25);
+    }
+
     /* ---------- Event info ---------- */
     .event { display: grid; grid-template-columns: 1.15fr .85fr; gap: 28px; align-items: start; }
     .event__table { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
@@ -400,6 +446,7 @@
         <span class="logo__main"><span>KIMONO</span>salon</span>
       </a>
       <nav class="nav" id="nav" aria-label="メインナビゲーション">
+        <a href="#collection">振袖コレクション</a>
         <a href="#event">開催概要</a>
         <a href="#point">モリワキの強み</a>
         <a href="#included">レンタル内容</a>
@@ -464,6 +511,56 @@
         </div>
       </div>
     </section>
+
+    <!-- ===== Gallery ===== -->
+    <section class="section gallery" id="collection">
+      <div class="container">
+        <div class="section__head">
+          <p class="section__en">COLLECTION</p>
+          <h2 class="section__title">振袖コレクション</h2>
+          <p class="section__lead">古典からモダン、レトロまで。<br class="sp-only">あなたらしい一着がきっと見つかります。</p>
+        </div>
+        <ul class="gallery__list">
+          <li class="gallery__item reveal">
+            <button type="button" class="gallery__img" data-src="images/furisode-1.jpg" aria-label="清楚な古典（白×金）の写真を拡大">
+              <img src="images/furisode-1.jpg" alt="白×金の振袖（清楚な古典）を着た女性" width="720" height="1080" loading="lazy">
+            </button>
+            <p class="gallery__tag">清楚な古典</p>
+            <p class="gallery__name">白×金</p>
+            <p class="gallery__desc">白地に金の牡丹と松をあしらった、上品で華やかな一着。</p>
+          </li>
+          <li class="gallery__item reveal">
+            <button type="button" class="gallery__img" data-src="images/furisode-2.jpg" aria-label="艶やかな古典（濃紺×赤）の写真を拡大">
+              <img src="images/furisode-2.jpg" alt="濃紺×赤の振袖（艶やかな古典）を着た女性" width="720" height="1080" loading="lazy">
+            </button>
+            <p class="gallery__tag">艶やかな古典</p>
+            <p class="gallery__name">濃紺×赤</p>
+            <p class="gallery__desc">濃紺に赤や金が映える、王道の古典柄。</p>
+          </li>
+          <li class="gallery__item reveal">
+            <button type="button" class="gallery__img" data-src="images/furisode-3.jpg" aria-label="上品モダン（白×藍）の写真を拡大">
+              <img src="images/furisode-3.jpg" alt="白×藍の振袖（上品モダン）を着た女性" width="720" height="1080" loading="lazy">
+            </button>
+            <p class="gallery__tag">上品モダン</p>
+            <p class="gallery__name">白×藍</p>
+            <p class="gallery__desc">白地に淡い花と藍の差し色。やわらかく大人っぽい印象に。</p>
+          </li>
+          <li class="gallery__item reveal">
+            <button type="button" class="gallery__img" data-src="images/furisode-4.jpg" aria-label="レトロかわいい（紫×花尽くし）の写真を拡大">
+              <img src="images/furisode-4.jpg" alt="紫×花尽くしの振袖（レトロかわいい）を着た女性" width="720" height="1080" loading="lazy">
+            </button>
+            <p class="gallery__tag">レトロかわいい</p>
+            <p class="gallery__name">紫×花尽くし</p>
+            <p class="gallery__desc">鮮やかな花々にブーツを合わせた、遊び心のある着こなし。</p>
+          </li>
+        </ul>
+        <p class="gallery__note">※ 掲載の振袖は一例です。展示会では、さらにたくさんの振袖を実際にご覧いただけます。</p>
+      </div>
+    </section>
+    <dialog class="lightbox" id="lightbox" aria-label="振袖の写真">
+      <img src="" alt="">
+      <button type="button" class="lightbox__close" aria-label="閉じる">×</button>
+    </dialog>
 
     <!-- ===== Event ===== -->
     <section class="section section--tint" id="event">
@@ -833,6 +930,21 @@
           selectTab(next); next.focus();
         });
       });
+
+      // ----- Gallery lightbox -----
+      const lightbox = document.getElementById('lightbox');
+      if (lightbox && typeof lightbox.showModal === 'function') {
+        const lbImg = lightbox.querySelector('img');
+        document.querySelectorAll('.gallery__img').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const img = btn.querySelector('img');
+            lbImg.src = btn.dataset.src; lbImg.alt = img.alt;
+            lightbox.showModal();
+          });
+        });
+        lightbox.querySelector('.lightbox__close').addEventListener('click', () => lightbox.close());
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.close(); });
+      }
 
       document.getElementById('year').textContent = new Date().getFullYear();
     })();

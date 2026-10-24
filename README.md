@@ -1,7 +1,7 @@
 # MORIWAKI KIMONOsalon 振袖展示会 LP
 
 MORIWAKI KIMONOsalon（株式会社ビューティサロンモリワキ）の振袖展示会 告知用ランディングページです。ご予約は電話のみで受け付けます。
-`index.html` と `images/hero.jpg` だけで動きます（ビルド不要）。
+`index.html` と `images` フォルダだけで動きます（ビルド不要）。
 
 > **テスト公開中**：`index.html` の `<meta name="robots" content="noindex, nofollow, noarchive">` で検索エンジンに載らないようにしています。公式サイトで本番公開するときは、この行を削除してください。
 
